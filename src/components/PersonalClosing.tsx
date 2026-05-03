@@ -12,7 +12,7 @@ export function PersonalClosing() {
       className="relative z-10 scroll-mt-28 border-y border-black/[0.06] bg-[color:var(--paper-elevated)]/88 px-6 py-12 backdrop-blur-[2px] md:px-8 md:py-14"
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 md:flex-row md:items-start md:justify-between md:gap-10">
-        <div id="vibe" className="shrink-0 scroll-mt-28">
+        <div className="shrink-0 scroll-mt-28">
           <div className="torn-frame grain-soft relative h-[132px] w-[168px] rotate-[1deg] overflow-hidden shadow-[12px_28px_52px_rgba(42,30,26,0.15)] ring-1 ring-black/[0.08] transition-[transform,box-shadow] duration-500 hover:rotate-0 hover:shadow-[16px_34px_58px_rgba(42,30,26,0.18)] md:h-[148px] md:w-[188px]">
             <Image
               src="/photos/protyasish-portrait.jpeg"

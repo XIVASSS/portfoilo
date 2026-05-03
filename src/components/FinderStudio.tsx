@@ -3,7 +3,7 @@ import { MacFolderIcon, type MacFolderTone } from "@/components/MacFolderIcon";
 
 const sidebar = [
   { icon: "⌂", label: "Projects", href: "#scrapbook-board", active: true },
-  { icon: "◎", label: "Snapshot", href: "#vibe", active: false },
+  { icon: "◎", label: "Records", href: "#music", active: false },
   { icon: "★", label: "Achievements", href: "#about", active: false },
   { icon: "❧", label: "Garden", href: "#contact", active: false },
 ];
@@ -125,8 +125,11 @@ export function FinderStudio() {
                 ))}
               </div>
               <p className="mx-auto mt-14 max-w-lg text-center font-mono text-[10px] leading-relaxed text-black/48">
-                Looking for the scattered clips? Jump to the mood board —
-                everything there pins back to these lanes.
+                Looking for the scattered clips? Jump to the{" "}
+                <a href="#music" className="text-[color:var(--brand-red)] underline decoration-black/15 underline-offset-2 hover:decoration-[color:var(--brand-red)]/50">
+                  record wall
+                </a>{" "}
+                — album art and writer lane beside these build folders.
               </p>
             </div>
           </div>

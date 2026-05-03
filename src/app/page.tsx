@@ -3,6 +3,7 @@ import { FinderStudio } from "@/components/FinderStudio";
 import { HomeHero } from "@/components/HomeHero";
 import { PersonalClosing } from "@/components/PersonalClosing";
 import { ScrapbookProjects } from "@/components/ScrapbookProjects";
+import { SongwriterSection } from "@/components/SongwriterSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 import { WalkingCharacters } from "@/components/WalkingCharacters";
@@ -19,6 +20,8 @@ export default function Home() {
 
       <main className="relative z-10 flex w-full flex-1 flex-col bg-[color:var(--paper-elevated)]/93 backdrop-blur-[2px]">
         <FinderStudio />
+
+        <SongwriterSection />
 
         <section id="work" className="scroll-mt-24 px-4 py-14 md:px-6 md:py-18">
           <div className="mx-auto mb-8 max-w-5xl px-2 md:px-4">
