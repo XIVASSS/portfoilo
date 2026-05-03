@@ -1,128 +1,119 @@
 import Image from "next/image";
-
-const COVER_ACT1 = "/albums/hart-act-1.jpg";
-const COVER_DEAL = "/albums/hart-deal.jpg";
-
-function TapeStrip({ className }: { className?: string }) {
-  return (
-    <div
-      className={`pointer-events-none absolute h-7 w-[5.5rem] bg-[linear-gradient(105deg,rgba(255,255,255,0.05)_0%,rgba(250,246,236,0.92)_22%,rgba(245,238,224,0.98)_50%,rgba(250,246,236,0.88)_78%,rgba(255,255,255,0.06)_100%)] shadow-[0_3px_0_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.65)] ring-1 ring-black/15 ${className ?? ""}`}
-      aria-hidden
-    />
-  );
-}
+import { AlbumCoverInteractive } from "@/components/AlbumCoverInteractive";
+import { ALBUM_RELEASES, SONG_VISUALS } from "@/content/songGraphics";
 
 export function SongwriterSection() {
   return (
     <section
       id="music"
-      className="relative scroll-mt-28 overflow-hidden border-y border-black/25"
+      className="relative scroll-mt-28 overflow-hidden bg-[#1c1917] text-[#f5f0ea]"
       aria-labelledby="music-heading"
     >
-      {/* DIY wall: color blocks + depth (separate from rest of site) */}
       <div
-        className="absolute inset-0"
-        style={{
-          background: `
-            linear-gradient(118deg, #e31e24 0%, #e31e24 14%, transparent 14%),
-            linear-gradient(205deg, #f2d024 0%, #f2d024 32%, transparent 32%),
-            linear-gradient(312deg, #74a544 0%, #74a544 22%, transparent 22%),
-            linear-gradient(165deg, #4a5d72 0%, #1f1a18 55%, #151210 100%)
-          `,
-        }}
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_50%_-10%,rgba(198,40,40,0.12),transparent_55%)]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-overlay"
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")`,
+          mixBlendMode: "overlay",
         }}
         aria-hidden
       />
 
-      <div className="relative z-[1] mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-        <div className="grain-soft relative rotate-[-0.35deg] rounded-sm border border-black/20 bg-[#ede6dc] px-5 py-10 shadow-[0_28px_80px_rgba(0,0,0,0.35),0_2px_0_rgba(255,255,255,0.45)_inset] ring-1 ring-black/10 md:px-10 md:py-14">
-          <TapeStrip className="-top-2 left-8 rotate-[-7deg] md:left-14" />
-          <TapeStrip className="-top-2 right-10 rotate-[5deg] md:right-16" />
+      <div className="relative z-[1] w-full max-w-none px-4 py-14 sm:px-6 md:px-10 md:py-20 lg:px-16 lg:py-24 xl:px-24">
+        {/* Wide top band: copy + thumbnail albums */}
+        <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16 xl:gap-24">
+          <header className="w-full max-w-2xl text-center lg:max-w-3xl lg:text-left">
+            <p className="font-mono text-[10px] uppercase tracking-[0.48em] text-[#a89f96]">
+              recordings · writer room
+            </p>
+            <h2
+              id="music-heading"
+              className="mt-4 text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-[1.02] tracking-[-0.02em]"
+              style={{
+                fontFamily: "var(--font-instrument-serif), ui-serif, Georgia, serif",
+              }}
+            >
+              Songwriter &amp; composer
+            </h2>
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#c62828]">
+              alias{" "}
+              <span
+                className="text-[1.05rem] normal-case tracking-normal text-[#f5f0ea]"
+                style={{ fontFamily: "var(--font-xivass-script), cursive" }}
+              >
+                xivass
+              </span>
+            </p>
+            <p className="mt-6 text-[15px] leading-relaxed text-[#c9c0b6] md:text-[16px]">
+              Two released covers at thumbnail scale — session lane below is the
+              wider wall: collage passes, ink treatments, comps that never had to
+              ship as a URL.
+            </p>
+          </header>
 
-          <p className="font-mono text-[10px] uppercase tracking-[0.42em] text-[#6b5344]">
-            side b — audio / paper cuts
-          </p>
-          <h2
-            id="music-heading"
-            className="mt-4 max-w-2xl text-[clamp(2rem,5vw,3.25rem)] leading-[0.98] tracking-tight text-[#1a1412]"
-            style={{ fontFamily: "var(--font-caveat), cursive" }}
-          >
-            Songwriter &amp; composer — same hand as the commits, different
-            medium.
-          </h2>
-          <p className="mt-5 max-w-2xl font-mono text-[11px] leading-relaxed text-black/58 md:text-[12px]">
-            These covers are the loud scrapbook lane: tape, torn edges, and
-            scarlet type. Cassettes and collage logic carry straight into how I
-            sequence hooks and harmonic turns.
-          </p>
+          <AlbumCoverInteractive albums={ALBUM_RELEASES} />
+        </div>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-8 md:pt-2">
-            <figure className="group relative mx-auto w-full max-w-[280px] md:mx-0 md:max-w-none">
-              <TapeStrip className="left-1/2 top-0 z-[2] -translate-x-1/2 -translate-y-1/2 rotate-[-3deg]" />
-              <div className="torn-frame grain-soft relative aspect-square rotate-[-2.5deg] overflow-hidden bg-[#5c6354] shadow-[14px_36px_0_rgba(20,16,14,0.35)] ring-2 ring-black/25 transition-[transform,box-shadow] duration-500 ease-out group-hover:rotate-[-1deg] group-hover:shadow-[18px_44px_0_rgba(20,16,14,0.38)]">
-                <Image
-                  src={COVER_ACT1}
-                  alt="HART Act 1 Single album artwork by xivass Co."
-                  fill
-                  sizes="(max-width:768px) 85vw, 320px"
-                  className="object-cover object-center"
-                />
-              </div>
-              <figcaption className="mt-5 space-y-1 text-left">
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[#8a2f2f]">
-                  HART · act 1 single
-                </p>
-                <p
-                  className="text-lg text-[#1a1412]"
-                  style={{ fontFamily: "var(--font-xivass-script), cursive" }}
-                >
-                  by xivass Co.
-                </p>
-              </figcaption>
-            </figure>
-
-            <figure className="group relative mx-auto w-full max-w-[280px] md:mx-0 md:max-w-none md:pt-8">
-              <TapeStrip className="left-1/2 top-0 z-[2] -translate-x-1/2 -translate-y-1/2 rotate-[4deg] md:top-8 md:translate-y-0" />
-              <div className="torn-frame grain-soft relative aspect-square rotate-[2deg] overflow-hidden bg-[#1a1412] shadow-[14px_36px_0_rgba(180,40,40,0.22)] ring-2 ring-black/30 transition-[transform,box-shadow] duration-500 ease-out group-hover:rotate-[0.5deg] group-hover:shadow-[18px_44px_0_rgba(180,40,40,0.28)]">
-                <Image
-                  src={COVER_DEAL}
-                  alt="HART DEAL mixtape artwork — collage by xivass"
-                  fill
-                  sizes="(max-width:768px) 85vw, 320px"
-                  className="object-cover object-center"
-                />
-              </div>
-              <figcaption className="mt-5 space-y-1 text-left">
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-black/55">
-                  HART DEAL · mixtape
-                </p>
-                <p className="text-sm leading-snug text-black/70">
-                  <span className="font-serif italic">mixtape</span>{" "}
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-black/45">
-                    BY
-                  </span>{" "}
-                  <span
-                    className="text-lg text-[color:var(--brand-red)]"
-                    style={{ fontFamily: "var(--font-xivass-script), cursive" }}
-                  >
-                    xivass
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
+        {/* Full-bleed session strip (wider than text block) */}
+        <div className="relative left-1/2 right-1/2 mt-14 w-screen max-w-none -translate-x-1/2 border-y border-white/[0.07] bg-[#161311]/80 py-10 md:mt-20 md:py-14">
+          <div className="mx-auto flex w-full max-w-none flex-col gap-4 px-4 sm:px-6 md:px-10 lg:flex-row lg:items-end lg:justify-between lg:px-16 xl:px-24">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.42em] text-[#a89f96]">
+                session clips
+              </p>
+              <p
+                className="mt-2 text-2xl font-light text-[#f5f0ea] md:text-[1.65rem]"
+                style={{
+                  fontFamily: "var(--font-instrument-serif), ui-serif, Georgia, serif",
+                }}
+              >
+                Pieces from the same desk
+              </p>
+            </div>
+            <p className="max-w-md font-mono text-[10px] leading-relaxed text-[#8a827a] lg:text-right">
+              Horizontal strip uses the full viewport width — scroll or drag to
+              browse.
+            </p>
           </div>
 
-          <p className="mx-auto mt-12 max-w-xl border-t border-dashed border-black/15 pt-8 text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.28em] text-black/45">
-            stems · sketches · scores — ask if you want a reel or sheet peek; not
-            everything ships as a URL yet.
-          </p>
+          <div className="music-strip-scroll mt-6 flex snap-x snap-mandatory scroll-smooth gap-4 overflow-x-auto px-4 pb-3 pt-2 sm:gap-5 sm:px-6 md:mt-8 md:gap-5 md:px-10 lg:px-16 xl:px-24">
+            {SONG_VISUALS.map((v) => (
+              <figure
+                key={v.src}
+                className="group/strip relative w-[min(72vw,220px)] shrink-0 snap-center snap-always sm:w-[min(50vw,240px)] md:w-[min(28vw,260px)] lg:w-[min(22vw,280px)]"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#0c0a09] shadow-[0_16px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/[0.07] transition-[transform,box-shadow] duration-300 ease-out group-hover/strip:-translate-y-1 group-hover/strip:shadow-[0_22px_50px_rgba(0,0,0,0.5)] group-hover/strip:ring-amber-200/15">
+                  <Image
+                    src={v.src}
+                    alt={v.label}
+                    fill
+                    sizes="(max-width:768px) 72vw, 280px"
+                    unoptimized
+                    className="object-cover object-center transition duration-500 group-hover/strip:scale-[1.04]"
+                  />
+                </div>
+                <figcaption className="mt-2.5 space-y-0.5 px-0.5">
+                  <p className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[#dcd3c9]">
+                    {v.label}
+                  </p>
+                  {v.hint ? (
+                    <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-[#6f6862]">
+                      {v.hint}
+                    </p>
+                  ) : null}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
+
+        <footer className="mx-auto mt-12 max-w-4xl border-t border-dashed border-white/[0.1] pt-10 text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.26em] text-[#7a726c] md:mt-14">
+          stems · sketches · scores — ask if you want a reel or sheet peek; not
+          everything ships as a URL yet.
+        </footer>
       </div>
     </section>
   );

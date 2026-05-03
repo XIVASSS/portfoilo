@@ -375,3 +375,20 @@ body::after {
     transition: none;
   }
 }
+
+/* Music section — horizontal session art strip */
+.music-strip-scroll {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.music-strip-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.music-strip-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}

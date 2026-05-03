@@ -1,6 +1,6 @@
 # Portfolio — flip grid & project deep dives
 
-Personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. The home layers a hero flip mosaic under a handwritten headline, then a **scrapbook grid** of projects (wide tiles for LinkedIn-ready **post** artwork). Cards tilt on hover, straighten when focused, and expose chips for **Instructables / LinkedIn feed / GitHub** where configured in [`src/content/projects.ts`](src/content/projects.ts). Album art lives under [`public/albums/`](public/albums/) for the **Music** strip (`#music` — songwriter / composer lane). Stick-figure silhouettes stroll along the bottom edge (`WalkingCharacters`).
+Personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. The home layers a hero flip mosaic under a handwritten headline, then a **scrapbook grid** of projects (wide tiles for LinkedIn-ready **post** artwork). Cards tilt on hover, straighten when focused, and expose chips for **Instructables / LinkedIn feed / GitHub** where configured in [`src/content/projects.ts`](src/content/projects.ts). The **Music** block (`#music`) is a dark “writer room” with two hero covers ([`public/albums/`](public/albums/)) and a horizontal session strip ([`public/albums/songs/`](public/albums/songs/)). Stick-figure silhouettes stroll along the bottom edge (`WalkingCharacters`).
 
 Motion respects **`prefers-reduced-motion`** — flips are disabled and project cards show a static summary state.
 
