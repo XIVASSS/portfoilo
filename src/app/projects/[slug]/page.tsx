@@ -11,6 +11,9 @@ export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
 }
 
+/** Unknown slugs return 404 instead of probing a missing serverless page (Vercel-safe). */
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
